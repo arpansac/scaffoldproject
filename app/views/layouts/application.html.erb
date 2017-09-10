@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scaffoldproject</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<nav>
+		<ul style="list-style: none;">
+			<li>
+				<%= link_to "Home", root_path %>
+			</li>
+			<% if !user_signed_in? %>
+			<li>
+				<%= link_to "Sign Up", new_user_registration_path %>
+			</li>
+			<li>
+				<%= link_to "Sign In", new_user_session_path %>
+			</li>
+			<% else %>
+			<li>
+				<p>Hello <%= current_user.email %></p>
+			</li>
+			<li>
+				<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+			</li>
+
+			<% end %>
+		</ul>
+	</nav>
+
+
+<%= yield %>
+
+</body>
+</html>
