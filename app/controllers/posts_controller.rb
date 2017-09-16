@@ -1,6 +1,12 @@
 class PostsController < ApplicationController
+  
+  # authenticate_user! is provided by devise
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  
+  # set_comment sets the value of @comment from params
   before_action :authenticate_user!, only: [:edit, :update, :destroy, :create, :new]
+  
+  # authorize_user finds whether a user can perform the desired action
   before_action :authorize_user, only: [:edit, :update, :destroy]
   # GET /posts
   # GET /posts.json

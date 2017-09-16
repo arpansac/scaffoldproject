@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :posts
-  has_many :comments
+  
+  # dependent: :destroy is tells rails to remove the
+  # dependent (has many) objects when the parent object is destroyed
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 end

@@ -11,10 +11,12 @@
 </p>
 
 <ul>
+	<!-- display the comments for each post -->
 	<% @post.comments.each do |comment| %>
 	<li>
 		<p>
 			<%= comment.content %>
+			 by <%= comment.user.email %>
 
 			<% if user_signed_in? && current_user == comment.user %>
 			<%= link_to "X", comment_path(comment.id), method: :delete %>
@@ -25,7 +27,7 @@
 	<% end %>
 </ul>
 
-
+<!-- a form for creating new comments for a post -->
 <%= form_for @comment do |f| %>
 	<%= f.hidden_field :post_id, value: @post.id %>
 	<%= f.label :content, "Add Comment"%>

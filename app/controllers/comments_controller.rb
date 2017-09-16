@@ -1,6 +1,13 @@
 class CommentsController < ApplicationController
+  # these are callbacks
+
+  # authenticate_user! is provided by devise
   before_action :authenticate_user!
+
+  # set_comment sets the value of @comment from params
   before_action :set_comment, only: [:destroy]
+
+  # authorize_user finds whether a user can perform the desired action
   before_action :authorize_user, only: [:destroy]
 
 

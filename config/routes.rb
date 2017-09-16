@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :posts
+  # allowing only create and destroy on resources
   resources :comments, only: [:create, :destroy]
 
   
