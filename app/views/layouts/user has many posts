@@ -1,0 +1,56 @@
+user has many posts
+
+1 user can have many posts
+
+1 post can belong to 1 user
+
+
+Hence 1 to Many
+
+
+user --> posts "1, 2, 3, 4, 10"
+user --> posts "11, 13, 12"
+user --> posts "100, 20"
+user --> posts "5, 7"
+
+post --> id = 5
+
+
+OR
+
+post --> user_id 1
+post --> user_id 10
+post --> user_id 200
+post --> user_id 30
+post --> user_id 55
+post --> user_id 200
+
+
+rails g migration AddUserToPosts user:references
+rake db:migrate
+
+
+
+form_for --> when we have an object (either empty or existing)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

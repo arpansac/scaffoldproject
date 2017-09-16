@@ -1,4 +1,6 @@
-<%= form_for(@post) do |f| %>
+<!-- empty @post (user signed in)-->
+<!-- edit existing @post (user_signed_in? && current_user == @post.user)-->
+<%= form_for @post do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>

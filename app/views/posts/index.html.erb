@@ -12,9 +12,9 @@
   </thead>
 
   <tbody>
-    <!-- # <% @posts.posts.each do |post| %> -->
+
     <!-- replacing the above line to display only the signed in user's post -->
-    <% current_user.posts.each do |post| %>
+    <% @posts.each do |post| %>
       <tr>
         <td><%= post.title %></td>
         <td><%= post.content %></td>
@@ -22,7 +22,7 @@
 
         <!-- if we are displaying all the posts, then we can use the line below
         to show edit and update links only if the user is signed in -->
-        <% if user_signed_in? %>
+        <% if user_signed_in? && current_user == post.user %>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
